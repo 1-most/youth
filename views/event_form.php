@@ -1,0 +1,258 @@
+
+<?php
+session_start();
+require_once('../partials/head.php');
+require_once('../partials/scripts.php');
+
+?>
+
+<body>
+    <main class="main" id="top">
+        <div class="container-fluid">
+            <!-- Sidebar -->
+            <?php include('../partials/youth_sidenav.php'); ?>
+        
+            <!-- Main Content Area -->
+            <div class="content">
+                <!-- Header Section -->
+                <?php include('../partials/header.php'); ?>
+
+                <!-- Navigation Bar -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">Youth Platform</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            
+                        </div>
+                    </div>
+                </nav>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            border: 1px solid #e1e1e1;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+            font-weight: 600;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: flex;
+            align-items: center;
+            color: #555;
+            margin-bottom: 8px;
+            font-size: 1em;
+            font-weight: 500;
+        }
+        .form-group label i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+        .form-group input, 
+        .form-group textarea, 
+        .form-group select {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 1em;
+            color: #333;
+            background: #f9f9f9;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+        .form-group input:focus, 
+        .form-group textarea:focus, 
+        .form-group select:focus {
+            border-color: #007bff;
+            background-color: #ffffff;
+            outline: none;
+        }
+        .form-group small.form-text {
+            color: #666;
+            font-size: 0.9em;
+        }
+        form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form button i {
+            margin-right: 8px;
+        }
+        form button:hover {
+            background-color: #0056b3;
+            transform: scale(1.02);
+        }
+        form button:active {
+            background-color: #004494;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1em;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        #preview-btn {
+            background-color: #ffc107;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #preview-btn i {
+            margin-right: 8px;
+        }
+        #preview-btn:hover {
+            background-color: #e0a800;
+            transform: scale(1.02);
+        }
+        #preview-btn:active {
+            background-color: #d39e00;
+        }
+        #confirmation {
+            margin-top: 20px;
+            font-size: 1em;
+            font-weight: 500;
+            text-align: center;
+            color: #28a745;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+
+<body>
+    <div class="container">
+        <h1>Create Event</h1>
+        <form method="post" enctype="multipart/form-data">
+            
+            
+            <div class="form-group">
+                <label for="event_name"><i class="fas fa-calendar-alt"></i> Event Name:</label>
+                <input type="text" id="event_name" name="event_name" required>
+                <small class="form-text">Enter the name of the event.</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="description"><i class="fas fa-align-left"></i> Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+                <small class="form-text">Provide a brief description of the event.</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="date"><i class="fas fa-calendar-day"></i> Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="time"><i class="fas fa-clock"></i> Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="location"><i class="fas fa-map-marker-alt"></i> Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="organizer"><i class="fas fa-user"></i> Organizer:</label>
+                <select id="organizer" name="organizer">
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="image"><i class="fas fa-image"></i> Event Image:</label>
+                <input type="file" id="image" name="image">
+            </div>
+            
+            <button type="submit"><i class="fas fa-save"></i> Save</button>
+            <button type="button" id="preview-btn"><i class="fas fa-eye"></i> Preview</button>
+        </form>
+
+        <div id="confirmation" style="display: none;">
+            <p>Your event has been successfully created!</p>
+        </div>
+
+        <a href="event_list.php" class="back-link"><i class="fas fa-arrow-left"></i> Back to Event List</a>
+    </div>
+
+    <script>
+        document.getElementById('preview-btn').addEventListener('click', function() {
+            
+            document.getElementById('confirmation').style.display = 'block';
+        });
+
+        
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+            inputs.forEach(input => {
+                if (!input.value) {
+                    event.preventDefault();
+                    input.style.borderColor = 'red';
+                } else {
+                    input.style.borderColor = '#ddd';
+                }
+            });
+        });
+    </script>
+</body>
+
